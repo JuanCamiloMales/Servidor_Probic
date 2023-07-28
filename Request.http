@@ -1,0 +1,7 @@
+
+### Peticion sensores de fuerza
+GET http://localhost:3000/Sensors_Servo
+
+
+### Peticion sensores de fuerza
+GET http://localhost:3000/Sensors_Force
