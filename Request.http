@@ -1,9 +1,20 @@
 
 ### Peticion sensores de fuerza
-GET http://localhost:3000/Servos
+POST http://localhost:3000/getSensorsServo
+Content-Type: application/json
+
+[
+  {
+    "NumServo": 1
+  },
+  {
+    "NumServo": 2
+  },
+]
+
 
 ### Peticion sensores de fuerza
-POST http://localhost:3000/Servos
+POST http://localhost:3000/SensorsServo
 Content-Type: 'application/json'
 
 {
