@@ -1,7 +1,16 @@
 
 ### Peticion sensores de fuerza
-GET http://localhost:3000/Sensors_Servo
+GET http://localhost:3000/Servos
+
+### Peticion sensores de fuerza
+POST http://localhost:3000/Servos
+Content-Type: 'application/json'
+
+{
+  "Servo1": "0"
+}
+
 
 
 ### Peticion sensores de fuerza
-GET http://localhost:3000/Sensors_Force
+GET http://localhost:3000/ZMP

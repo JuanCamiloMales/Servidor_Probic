@@ -3,23 +3,36 @@ const express = require('express')
 const PORT = 3000
 
 const app = express()
+app.use((req, res, next) => {
+  if (req.method !== 'POST') return next()
+  if (req.headers['content-type'] !== ('application/json; charset=UTF-8' || 'application/json')) return next()
 
-app.get('/Sensors_Servo', (req, res) => {
-  res.send('Servo')
+  let body = ''
+  req.on('data', chunk => {
+    body += chunk.toString()
+  })
+  req.on('end', () => {
+    req.body = JSON.parse(body)
+    next()
+  })
 })
 
-app.post('/Sensors_Servo', (req, res) => {
-  res.send('Servo')
+app.get('/Servos', (req, res) => {
+  res.json(Servos)
 })
 
-app.get('/Sensors_Force', (req, res) => {
-  res.send('Force')
+app.post('/Servos', (req, res) => {
+  res.status(200).json({ ok: 'ok' })
 })
 
-app.post('/Sensors_Force', (req, res) => {
-  res.send('Force')
+app.get('/ZMP', (req, res) => {
+  res.json({ getServos: 'getForce' })
 })
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })
+
+let Servos = {
+  Servo1: '0'
+}
