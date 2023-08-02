@@ -9,19 +9,22 @@ Content-Type: application/json
   },
   {
     "NumServo": 2
-  },
+  }
 ]
 
 
 ### Peticion sensores de fuerza
-POST http://localhost:3000/SensorsServo
-Content-Type: 'application/json'
+POST http://localhost:3000/setServosActuator
+Content-Type: application/json
 
-{
-  "Servo1": "0"
-}
+[
+  {
+    "NumServo": 1,
+    "Actuator": 0
+  },
+  {
+    "NumServo": 2,
+    "Actuator": 0
+  }
+]
 
-
-
-### Peticion sensores de fuerza
-GET http://localhost:3000/ZMP

@@ -1,5 +1,5 @@
 export class Servos {
-  constructor () {
+  constructor() {
     this.Servos = []
     for (let i = 1; i <= 12; i++) {
       const Servo = {
@@ -12,7 +12,7 @@ export class Servos {
   }
 
   // Retornar el indice del servo
-  findIndexServo (NumServo) {
+  findIndexServo(NumServo) {
     const IndexServo = this.Servos.findIndex((Servo) => Servo.NumServo === NumServo)
     return IndexServo
   }
@@ -20,7 +20,7 @@ export class Servos {
   /* ----------------- Funciones para Sensores ------------------ */
 
   // Retorna los valores de los sensores del objeto que recibe
-  getSensorsServo (Servos) {
+  getServosSensor(Servos) {
     const response = Servos.map((Servo) => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       const ServoFound = this.Servos[IndexServo]
@@ -31,7 +31,7 @@ export class Servos {
   }
 
   // Guarda los valores de los sensores del objeto que recibe
-  setServosSensors (ServosSensors) {
+  setServosSensors(ServosSensors) {
     ServosSensors.forEach(Servo => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       this.Servos[IndexServo].Sensor = Servo.Sensor
@@ -41,7 +41,7 @@ export class Servos {
   /* ----------------- Funciones para Actuadores ------------------ */
 
   // Retorna los valores de los sensores del objeto que recibe
-  getSensorsActuator (Servos) {
+  getServosActuator(Servos) {
     const response = Servos.map((Servo) => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       const ServoFound = this.Servos[IndexServo]
@@ -52,7 +52,7 @@ export class Servos {
   }
 
   // Guarda los valores de los sensores del objeto que recibe
-  setServosActuator (ServosSensors) {
+  setServosActuator(ServosSensors) {
     ServosSensors.forEach(Servo => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       this.Servos[IndexServo].Actuator = Servo.Actuator

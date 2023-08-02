@@ -1,6 +1,7 @@
 import express from 'express'
 import { Servos } from './Servos.mjs'
 import { SensorsForce } from './SensorsForce.mjs'
+import { log } from 'console'
 
 const PORT = 3000
 
@@ -19,23 +20,37 @@ app.use((req, res, next) => {
   })
 })
 
-app.post('/getSensorsServo', (req, res) => {
-  const response = servos.getSensorsServo(req.body)
+app.post('/getServosSensor', (req, res) => {
+  console.log('getServosSensor')
+  const response = servos.getServosSensor(req.body)
   res.status(200).json(response)
 })
 
-app.post('/setSensorsServo', (req, res) => {
+app.post('/setServosSensors', (req, res) => {
   servos.setServosSensors(req.body)
+  console.log(servos)
+  res.status(200).json({ ok: 'ok' })
+})
+
+app.post('/getServosActuator', (req, res) => {
+  const response = servos.getServosActuator(req.body)
+  res.status(200).json(response)
+})
+
+app.post('/setServosActuator', (req, res) => {
+  console.log('setServosActuator')
+  servos.setServosActuator(req.body)
   res.status(200).json({ ok: 'ok' })
 })
 
 app.post('/getSensorsForce', (req, res) => {
-  const response = sensorForce.getSensorsForce(req.body)
+  const response = sensorsForce.getSensorsForce(req.body)
   res.status(200).json(response)
 })
 
 app.post('/setSensorsForce', (req, res) => {
-  sensorForce.setSensorsForce(req.body)
+  sensorsForce.setSensorsForce(req.body)
+  console.log(sensorsForce)
   res.status(200).json({ ok: 'ok' })
 })
 
@@ -44,4 +59,4 @@ app.listen(PORT, () => {
 })
 
 const servos = new Servos()
-const sensorForce = new SensorsForce()
+const sensorsForce = new SensorsForce()
