@@ -20,8 +20,8 @@ export class Servos {
   /* ----------------- Funciones para Sensores ------------------ */
 
   // Retorna los valores de los sensores del objeto que recibe
-  getServosSensor(Servos) {
-    const response = Servos.map((Servo) => {
+  getServosSensor(ServosSensors) {
+    const response = ServosSensors.map((Servo) => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       const ServoFound = this.Servos[IndexServo]
       const responseServo = { NumServo: ServoFound.NumServo, Sensor: ServoFound.Sensor }
@@ -40,9 +40,9 @@ export class Servos {
 
   /* ----------------- Funciones para Actuadores ------------------ */
 
-  // Retorna los valores de los sensores del objeto que recibe
-  getServosActuator(Servos) {
-    const response = Servos.map((Servo) => {
+  // Retorna los valores de los actuadores del objeto que recibe
+  getServosActuator(ServosActuators) {
+    const response = ServosActuators.map((Servo) => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       const ServoFound = this.Servos[IndexServo]
       const responseServo = { NumServo: ServoFound.NumServo, Actuator: ServoFound.Actuator }
@@ -51,9 +51,9 @@ export class Servos {
     return response
   }
 
-  // Guarda los valores de los sensores del objeto que recibe
-  setServosActuator(ServosSensors) {
-    ServosSensors.forEach(Servo => {
+  // Guarda los valores de los actuadores del objeto que recibe
+  setServosActuator(ServosActuators) {
+    ServosActuators.forEach(Servo => {
       const IndexServo = this.findIndexServo(Servo.NumServo)
       this.Servos[IndexServo].Actuator = Servo.Actuator
     })
